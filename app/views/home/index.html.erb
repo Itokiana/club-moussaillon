@@ -1,0 +1,19 @@
+<div class="container" style="margin-top: 100px">
+<% if user_signed_in? %>
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Bonjour <%= current_user.last_name%>!</h4>
+  <p>Vous pouvez accèder à la liste des membres dans <a href="<%= members_path %>">ici</a></p>
+</div>
+<% else %>
+<div class="alert alert-danger" role="alert">
+  <h4 class="alert-heading">Désolé!</h4>
+  <p>Veuillez vous logger/inscrire si vous voulez voir la liste des membres du club.</p>
+  <hr>
+  <p class="mb-0">
+    <a class="btn btn-primary" href="<%= new_user_session_path %>">Se logger</a>
+    <a class="btn btn-success" href="<%= new_user_registration_path %>">S'inscrire</a>
+  </p>
+</div>
+<% end %>
+
+</div>
