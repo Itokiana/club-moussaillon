@@ -1,11 +1,12 @@
 require 'test_helper'
 
-class HomeControllerTest < ActionDispatch::IntegrationTest
+class HomeControllerTest < ActionController::TestCase
   include Devise::Test::ControllerHelpers
+  include Rails.application.routes.url_helpers
 
-  test "should get index" do
-    sign_in users(:default)
-    get home_index_url
+  test "Si la personne est connectée" do
+    sign_in users(:one)
+    
     assert_response :success
   end
 
